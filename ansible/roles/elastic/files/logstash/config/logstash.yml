@@ -1,0 +1,4 @@
+---
+pipeline.batch.size: 64
+http.host: '0.0.0.0'
+path.queue: '/usr/share/logstash/queue'

@@ -1,0 +1,10 @@
+--- Notes about things that needs resolution or workflow improvement ---
+
+# Minikube setup needs python installation for ansible to work
+
+# Build kubernetes definitions using kustomize
+kustomize build k8s | kubectl apply -f -
+
+# The writable folders needs permission updates
+chmod -R 777 /mnt/elastic_volume/logstash/queue
+chmod -R 777 /mnt/elastic_volume/elasticsearch/data

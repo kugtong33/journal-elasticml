@@ -1,0 +1,6 @@
+---
+- name: rsync dependency (ubuntu / debian)
+  apt: name=rsync state=present
+
+- name: elastic configuration
+  synchronize: src=files/ dest=/mnt/elastic_volume/ owner=no group=no perms=no rsync_opts="--chmod=F644"

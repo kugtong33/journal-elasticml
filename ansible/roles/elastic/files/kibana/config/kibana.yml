@@ -1,0 +1,8 @@
+---
+server.name: "*"
+server.host: "0.0.0.0"
+xpack.security.encryptionKey: LTJRRHr81rnBY84WQ1kCNIvXa3rcAEnd
+xpack.security.sessionTimeout: 600000
+elasticsearch.hosts: http://elasticml-elasticsearch:9200
+elasticsearch.username: kibana
+elasticsearch.password: 0SE7wQ7YwdcD7geNuXxG

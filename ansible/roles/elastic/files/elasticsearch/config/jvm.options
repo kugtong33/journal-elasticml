@@ -1,0 +1,3 @@
+-Dlog4j2.disable.jmx=true
+-Xms2048m
+-Xmx2048m

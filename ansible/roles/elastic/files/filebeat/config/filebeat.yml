@@ -1,0 +1,17 @@
+filebeat.inputs:
+- type: docker
+  enabled: true
+  combine_partial: true
+  containers:
+    path: "/var/lib/docker/containers"
+    stream: "all"
+    ids:
+      - "*"
+  json.message_key: log
+  json.keys_under_root: true
+  json.ignore_decoding_error: true
+
+output.logstash:
+  hosts: ["elasticml-logstash:5044"]
+  worker: 1
+  pipelining: 1

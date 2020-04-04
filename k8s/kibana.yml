@@ -1,0 +1,43 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticml-kibana
+spec:
+  selector:
+    app: elasticml-kibana
+  ports:
+  - port: 5601
+    targetPort: 5601
+    protocol: TCP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticml-kibana
+  labels:
+    app: elasticml-kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticml-kibana
+  template:
+    metadata:
+      labels:
+        app: elasticml-kibana
+    spec:
+      containers:
+      - name: elasticml-kibana
+        image: docker.elastic.co/kibana/kibana:7.6.1
+        ports:
+        - containerPort: 5601
+        volumeMounts:
+        - mountPath: /usr/share/kibana/config/kibana.yml
+          name: kibana-config
+      volumes:
+      - name: kibana-config
+        hostPath:
+          path: /mnt/elastic_volume/kibana/config/kibana.yml
+          type: File

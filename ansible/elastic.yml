@@ -1,0 +1,7 @@
+---
+- name: elastic configuration
+  hosts: master-elastic-00
+  become: true
+  become_method: sudo
+  roles:
+    - role: elastic
