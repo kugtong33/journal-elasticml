@@ -8,3 +8,22 @@ kustomize build k8s | kubectl apply -f -
 # The writable folders needs permission updates
 chmod -R 777 /mnt/elastic_volume/logstash/queue
 chmod -R 777 /mnt/elastic_volume/elasticsearch/data
+
+# Elastic Default Passwords
+Changed password for user apm_system
+PASSWORD apm_system = rQMfT8cQfB5K1Uh665Y3
+
+Changed password for user kibana
+PASSWORD kibana = cIkIVQ11nCqjFPIaTJXs
+
+Changed password for user logstash_system
+PASSWORD logstash_system = sKCJ2ULmuwN3sOwcajoh
+
+Changed password for user beats_system
+PASSWORD beats_system = mjfm0R2znQeSnLLekEDF
+
+Changed password for user remote_monitoring_user
+PASSWORD remote_monitoring_user = 21G9Qx3fuveq0LeChTUW
+
+Changed password for user elastic
+PASSWORD elastic = RzLInzIMsOksvtMtkqSg

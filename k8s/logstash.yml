@@ -4,7 +4,6 @@ kind: Service
 metadata:
   name: elasticml-logstash
 spec:
-  type: NodePort
   selector:
     app: elasticml-logstash
   ports:

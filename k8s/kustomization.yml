@@ -9,3 +9,4 @@ resources:
 - elasticsearch.yml
 - kibana.yml
 - logstash.yml
+- filebeat.yml
