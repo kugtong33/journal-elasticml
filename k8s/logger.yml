@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticml-logger
+  labels:
+    app: elasticml-logger
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: elasticml-logger
+  template:
+    metadata:
+      labels:
+        app: elasticml-logger
+    spec:
+      containers:
+      - name: elasticml-logger
+        image: kugtong33/random-logger:1

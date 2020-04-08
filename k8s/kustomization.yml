@@ -10,3 +10,4 @@ resources:
 - kibana.yml
 - logstash.yml
 - filebeat.yml
+- logger.yml
