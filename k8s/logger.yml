@@ -1,20 +1,15 @@
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: elasticml-logger
-  labels:
-    app: elasticml-logger
 spec:
-  replicas: 10
-  selector:
-    matchLabels:
-      app: elasticml-logger
   template:
     metadata:
-      labels:
-        app: elasticml-logger
+      name: elasticml-logger
     spec:
       containers:
       - name: elasticml-logger
-        image: kugtong33/random-logger:1
+        image: kugtong33/random-logger:2
+      restartPolicy: Never
+  backoffLimit: 5

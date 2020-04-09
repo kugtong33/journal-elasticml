@@ -20,10 +20,22 @@ spec:
         ports:
         - containerPort: 5044
         volumeMounts:
-        - mountPath: /usr/share/filebeat/config/filebeat.yml
-          name: filebeat-config-main
+        - name: filebeat-config-main
+          mountPath: /usr/share/filebeat/config/filebeat.yml
+        - name: docker-logs
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+        - name: logs
+          mountPath: /var/log
+          readOnly: true
       volumes:
       - name: filebeat-config-main
         hostPath:
           path: /mnt/elastic_volume/filebeat/config/filebeat.yml
           type: File
+      - name: docker-logs
+        hostPath:
+          path: /var/lib/docker/containers
+      - name: logs
+        hostPath:
+          path: /var/logs
