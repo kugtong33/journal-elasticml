@@ -37,7 +37,7 @@ class RandomLog {
     ][Math.round(Math.random())];
   }
 
-  public async start() {
+  public start() {
     let idx = 0;
     let log: string | AppError;
 
@@ -55,7 +55,11 @@ class RandomLog {
   }
 
   /* TODO, figure out how to stop the randomizer if its in the middle of the loop */
-  public async stop() {}
+  public stop() {
+    process.exit(0);
+  }
 }
 
-new RandomLog(logger, { max: 10000, interval: 500 }).start();
+const ramdomLog = new RandomLog(logger, { max: 10000, interval: 500 });
+ramdomLog.start();
+ramdomLog.stop();
