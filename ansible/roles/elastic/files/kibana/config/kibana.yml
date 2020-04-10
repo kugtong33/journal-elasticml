@@ -5,4 +5,4 @@ xpack.security.encryptionKey: LTJRRHr81rnBY84WQ1kCNIvXa3rcAEnd
 xpack.security.sessionTimeout: 600000
 elasticsearch.hosts: http://elasticml-elasticsearch:9200
 elasticsearch.username: kibana
-elasticsearch.password: cIkIVQ11nCqjFPIaTJXs
+elasticsearch.password: bf31eMF1TLdcjMpfx7tg
