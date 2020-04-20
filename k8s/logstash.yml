@@ -102,31 +102,23 @@ spec:
         - containerPort: 5044
         volumeMounts:
         - name: config
-          mountPath: /usr/share/logstash/config/logstash.yml
-          readOnly: true
-          subPath: logstash.yml
-        - name: config-pipeline
-          mountPath: /usr/share/logstash/config/pipelines.yml
-          readOnly: true
-          subPath: pipelines.yml
-        - name: jvm
-          mountPath: /usr/share/logstash/config/jvm.options
-          readOnly: true
-          subPath: jvm.options
-        - name: elasticml-elasticsearch
-          mountPath: /usr/share/logstash/pipeline/elasticml.elasticsearch.conf
-          readOnly: true
-          subPath: elasticml.elasticsearch.conf
+          mountPath: /usr/share/logstash/config
+        - name: pipeline
+          mountPath: /usr/share/logstash/pipeline
       volumes:
       - name: config
         configMap:
           name: elasticml-logstash
-      - name: config-pipeline
+          items:
+            - key: jvm.options
+              path: jvm.options
+            - key: logstash.yml
+              path: logstash.yml
+            - key: pipelines.yml
+              path: pipelines.yml
+      - name: pipeline
         configMap:
           name: elasticml-logstash
-      - name: jvm
-        configMap:
-          name: elasticml-logstash
-      - name: elasticml-elasticsearch
-        configMap:
-          name: elasticml-logstash
+          items:
+            - key: elasticml.elasticsearch.conf
+              path: elasticml.elasticsearch.conf

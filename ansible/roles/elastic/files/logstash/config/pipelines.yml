@@ -1,5 +1,0 @@
----
-- pipeline.id: elasticml-elasticsearch
-  path.config: "/usr/share/logstash/pipeline/elasticsearch.elasticml.conf"
-  pipeline.workers: 1
-  queue.type: persisted

@@ -1,5 +1,24 @@
 ---
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticml-kibana
+  namespace: default
+  labels:
+    k8s-app: kibana
+data:
+  kibana.yml: |-
+    ---
+    server.name: "*"
+    server.host: "0.0.0.0"
+    xpack.security.encryptionKey: LTJRRHr81rnBY84WQ1kCNIvXa3rcAEnd
+    xpack.security.sessionTimeout: 600000
+    elasticsearch.hosts: http://elasticml-elasticsearch:9200
+    elasticsearch.username: kibana
+    elasticsearch.password: bf31eMF1TLdcjMpfx7tg
+
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: elasticml-kibana
@@ -35,10 +54,12 @@ spec:
         ports:
         - containerPort: 5601
         volumeMounts:
-        - mountPath: /usr/share/kibana/config/kibana.yml
-          name: kibana-config
+        - name: config
+          mountPath: /usr/share/kibana/config/
       volumes:
-      - name: kibana-config
-        hostPath:
-          path: /mnt/elastic_volume/kibana/config/kibana.yml
-          type: File
+      - name: config
+        configMap:
+          name: elasticml-kibana
+          items:
+            - key: kibana.yml
+              path: kibana.yml
