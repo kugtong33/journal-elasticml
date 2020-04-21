@@ -60,7 +60,7 @@ data:
       elasticsearch {
         hosts => ['http://elasticml-elasticsearch:9200']
         user => "elastic"
-        password => "bqIy3RWeJhGIS6AORJhA"
+        password => "1Ww9FzboZVPwocDjm0wk"
         index => "elasticml-%{+YYYY.MM.dd}"
       }
     }
