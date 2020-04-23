@@ -6,6 +6,7 @@ commonLabels:
   org: elasticml
 
 resources:
+- kube-state-metrics.yml
 - elasticsearch.yml
 - kibana.yml
 - logstash.yml

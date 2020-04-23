@@ -3,7 +3,7 @@
   kind: ConfigMap
   metadata:
     name: elasticml-elasticsearch
-    namespace: default
+    namespace: kube-system
     labels:
       k8s-app: kibana
   data:
@@ -22,6 +22,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: elasticml-elasticsearch
+  namespace: kube-system
 spec:
   selector:
     app: elasticml-elasticsearch
@@ -40,6 +41,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: elasticml-elasticsearch
+  namespace: kube-system
   labels:
     app: elasticml-elasticsearch
 spec:

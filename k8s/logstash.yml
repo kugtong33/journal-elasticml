@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: elasticml-logstash
-  namespace: default
+  namespace: kube-system
   labels:
     k8s-app: logstash
 data:
@@ -60,7 +60,7 @@ data:
       elasticsearch {
         hosts => ['http://elasticml-elasticsearch:9200']
         user => "elastic"
-        password => "1Ww9FzboZVPwocDjm0wk"
+        password => "z7XNQvfBRwIVfjzocKEr"
         index => "elasticml-%{+YYYY.MM.dd}"
       }
     }
@@ -70,6 +70,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: elasticml-logstash
+  namespace: kube-system
 spec:
   selector:
     app: elasticml-logstash
@@ -83,6 +84,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: elasticml-logstash
+  namespace: kube-system
   labels:
     app: elasticml-logstash
 spec:
